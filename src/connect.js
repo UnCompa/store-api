@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-const url = "mongodb+srv://pablovizuete13:Passw0rd@store-api.he3pq.mongodb.net/?retryWrites=true&w=majority&appName=Store-API";
+import {config} from 'dotenv'
+config()
+const url = process.env.MONGO_URL;
+
 mongoose
   .connect(url, {})
   .then(() => {
