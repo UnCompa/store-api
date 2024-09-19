@@ -14,12 +14,13 @@ productRoute.get("/:id", (req, res) => {
   res.send("Id recuperado" + id);
 });
 productRoute.post("/", async (req, res) => {
+  const data = req.body
   const product = new Product({
-    nombre: "Tenis",
-    precio: 12,
-    stock: 5,
+    nombre: data.nombre,
+    precio: data.precio,
+    stock: data.stock,
     imagen:
-      "https://http2.mlstatic.com/D_NQ_NP_980823-MLM45091627883_032021-O.webp",
+      data.imagen,
   });
   const productSave = await product.save();
   console.log(productSave);
